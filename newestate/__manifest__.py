@@ -11,6 +11,8 @@
         'views/template.xml',
         'wizard/property_view.xml',
         'data/menu_website.xml',
+        'report/estate_report.xml',
+        'report/estate_tam.xml',
 
         ],
     'depends': [

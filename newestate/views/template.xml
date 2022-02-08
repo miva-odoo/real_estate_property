@@ -66,7 +66,7 @@
                             </td>
                             <td>
                                
-                                    <t t-out="property.name"/>
+                                    <a t-att-href='"/estate/%s" %property.id'><t t-out="property.name"/></a>
                                
                             </td>
 
@@ -81,24 +81,38 @@
                         </tr>
                         </t>
                     </tbody>
+                    
                 </table>
+                <div class="row">
+                    </div>
             </div>
         </t>
     </template>
 
     <template id="property_details" name="Property_Details">
         <div t-call="website.layout">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <!-- <div t-attf-style="padding-top: 50%; background-image: url(/web/image/estate.property/#{property.id}/image_1024); background-size: cover; background-position:center"/> -->
-                    </div>
-                    <div class="col-6">
+        <div class="container">
 
+           <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="..."/>
+                    <div class="card-body">
+                        <h5 class="card-title">Name:<span t-field="properties.name"/></h5>
+                        <p class="card-text">Description:<span t-field="properties.description"/></p>
+                        <p class="card-text">Postcode:<span t-field="properties.postcode"/></p>
+                        <p class="card-text">Property Type:<span t-field="properties.property_type_id"/></p>
+                        <p class="card-text">Expected Price:<span t-field="properties.expected_price"/></p>
+                        <p class="card-text">Sales Person:<span t-field="properties.salesman_id"/></p>
                     </div>
                 </div>
-            </div>
         </div>
-        
+        </div>
     </template>
+
+
+    <template id="customize_property" name="Show Description" inherit_id="property_call" customize_show="True">
+        <xpath expr="//div[contains(@class,'row')]" position="inside">
+            <div t-field="property.description"/>
+        </xpath>
+    </template>
+
 </odoo>
